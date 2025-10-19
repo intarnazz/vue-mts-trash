@@ -11,5 +11,6 @@ createApp(App).use(router).mount('#app')
 // [ ] - C++ закрытие процесов
 // [ ] - C++ OSR баг reSIZE
 // [ ] - C++ Промисы
+// [ ] - C++ py catalog
 
 // [ ] - PY Поле NAME исключение
