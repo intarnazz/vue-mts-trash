@@ -14,9 +14,8 @@
   width: calc( 100dvw - 8rem )
 
 .wrapper
-  // width: 1300px
-  // margin: 0 auto
-  +w
+  width: 95dvw
+  margin: 0 auto
   padding: 1rem
 
 // @media screen and (max-width: 1440px)

@@ -1,15 +1,9 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue'
-import LayoutLoding from '@/layout/LayoutLoding.vue'
+import { onMounted, ref } from 'vue'
 import ComponentItemCatalog from '@/components/ComponentItemCatalog.vue'
 
-const emit = defineEmits(['choice_game'])
-const c = ref('')
+const props = defineProps(['item'])
 const isLoding = ref(true)
-
-const catalog = computed(() => {
-  return c.value
-})
 
 function sendToCppAsync(json) {
   return new Promise((resolve, reject) => {
@@ -34,7 +28,8 @@ async function init() {
       JSON.stringify({
         path: {
           name: 'game',
-          type: 'get',
+          type: 'content',
+          content: props.item.path,
         },
       }),
     )
@@ -52,22 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <LayoutLoding v-if="isLoding" />
-  <section class="clatalog" v-if="!isLoding">
-    <!-- <h2>
-      {{ catalog }}
-    </h2> -->
-    <div class="list">
-      <template v-for="item in catalog" :key="item.id">
-        <ComponentItemCatalog @choice_game="(i) => emit('choice_game', i)" :item="item" />
-      </template>
-    </div>
-  </section>
+  <ComponentItemCatalog :item="props.item" />
 </template>
 
-<style scoped lang="sass">
-.list
-  display: grid
-  grid-template-columns: 1fr 1fr 1fr 1fr
-  gap: 1rem
-</style>
+<style lang="sass"></style>

@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 const props = defineProps(['item'])
+const emit = defineEmits(['choice_game'])
 const avgColor = ref('black') // начальный цвет
 
 async function color() {
@@ -89,7 +90,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="item box-y gap-[0rem] pr">
+  <div @click="emit('choice_game', item)" class="item box-y gap-[0rem] pr">
     <div class="flex pr z-2">
       <p :style="{ color: avgColor }" >{{ item.name }}</p>
     </div>
@@ -121,6 +122,7 @@ onMounted(async () => {
 
 <style scoped lang="sass">
 .item
+  min-width: 300px
   &:hover
     cursor: pointer
     & .img.baner
