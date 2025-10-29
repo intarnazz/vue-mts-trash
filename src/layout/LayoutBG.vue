@@ -22,11 +22,20 @@ onMounted(() => {
 
 <style lang="sass" scoped>
 .texture
-  background-image: url('@/assets/img/texture.png');
-  opacity: .1
-  background-size: 7% 7%;
+  position: relative
+  overflow: hidden
 
-  animation: moveTexture 30s linear infinite alternate;
+.texture::before
+  content: ''
+  position: absolute
+  top: -100%
+  left: 0
+  width: 200%
+  height: 200%
+  background-image: url('@/assets/img/texture.png')
+  background-size: 7% 7%
+  opacity: 0.1
+  animation: moveTexture 2s linear infinite 
 // .main
 //   margin-top: $header
 .main
@@ -35,8 +44,7 @@ onMounted(() => {
 
 @keyframes moveTexture
   0%
-    background-position: 0 0;
-
+    transform: translate(0, 0)
   100%
-    background-position: -100% 100%;
+    transform: translate(-6.95%, 6.95%)
 </style>

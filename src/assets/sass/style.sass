@@ -4,13 +4,21 @@
   box-sizing: border-box
   user-select: none
 
+@font-face
+  font-family: Sixty
+  src: url('@/assets/fonts/SixtyfourConvergence-Regular-VariableFont_BLED,SCAN,XELA,YELA.ttf') format('truetype')
+
+@font-face
+  font-family: Spotify
+  src: url('@/assets/fonts/SpotifyMixUI-Bold-4264b799009b1db5c491778b1bc8e5b7.woff2')
+
 hr
   all: unset
 
 h1,
 h2,
 h3
-  font-family: "Roboto", sans-serif
+  font-family: "Spotify"
   font-optical-sizing: auto
   font-weight: bolder
 
@@ -20,6 +28,7 @@ h1
   font-size: 2.875rem
   font-weight: bolder
   line-height: 1.1
+  font-family: "Sixty"
 h2
   font-size: 2rem
   font-weight: bolder
@@ -28,7 +37,7 @@ h3
   font-weight: bolder
 
 html
-  font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: monospace
   font-weight: 500
   color: $text
   background-color: $background-color
@@ -111,7 +120,6 @@ html
   +wh
 .pr
   position: relative
-  +wh
 .pa
   position: absolute
   top: 0

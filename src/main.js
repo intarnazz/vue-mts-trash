@@ -12,5 +12,7 @@ createApp(App).use(router).mount('#app')
 // [ ] - C++ OSR баг reSIZE
 // [ ] - C++ Промисы
 // [ ] - C++ py catalog
+// [ ] - C++ не окно
 
 // [ ] - PY Поле NAME исключение
+// [ ] - PY пререндер
