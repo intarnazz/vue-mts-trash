@@ -35,7 +35,7 @@ onMounted(() => {
   background-image: url('@/assets/img/texture.png')
   background-size: 7% 7%
   opacity: 0.1
-  animation: moveTexture 2s linear infinite 
+  animation: moveTexture 2s linear infinite
 // .main
 //   margin-top: $header
 .main
