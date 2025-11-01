@@ -12,13 +12,17 @@
   font-family: Spotify
   src: url('@/assets/fonts/SpotifyMixUI-Bold-4264b799009b1db5c491778b1bc8e5b7.woff2')
 
+@font-face
+  font-family: Spotify-Cyrl
+  src: url('@/assets/fonts/CircularSp-Cyrl-Black-a68f6f038e225c51fc50bd4935a3b540.woff2')
+
 hr
   all: unset
 
 h1,
 h2,
 h3
-  font-family: "Spotify"
+  font-family: "Spotify", "Spotify-Cyrl"
   font-optical-sizing: auto
   font-weight: bolder
 
@@ -28,12 +32,12 @@ h1
   font-size: 2.875rem
   font-weight: bolder
   line-height: 1.1
-  font-family: "Sixty"
+  font-family: "Spotify", "Spotify-Cyrl"
 h2
   font-size: 2rem
   font-weight: bolder
 h3
-  font-size: 1.625rem
+  font-size: 1rem
   font-weight: bolder
 
 html
@@ -47,6 +51,11 @@ html
   min-height: 100dvh
   width: 100%
   +h
+
+.bb
+  color: #000
+.ff
+  color: #000
 
 .flex
   flex: 1
@@ -63,6 +72,11 @@ html
   display: flex
   flex-direction: column
   justify-content: space-between
+
+.box
+  background-color: #121212
+  padding: 1rem
+  border-radius: 10px
 
 .center
   display: flex

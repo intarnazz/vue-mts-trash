@@ -12,20 +12,17 @@ const choice_game = ref(null)
 
 <template>
   <LayoutPage class="main home">
-    <LayoutBG>
       <LayoutWrapper class="wrapper">
         <div class="box-x">
           <div class="flex"></div>
           <div class="flex">
             <div class="p-[2rem] box-y gap2">
-              <SectionStatus class="pr z-[2]" />
-              <SectionGame v-if="choice_game" :item="choice_game" />
+              <!-- <SectionGame v-if="choice_game" :item="choice_game" /> -->
             </div>
           </div>
         </div>
         <SectionCatalog v-if="!choice_game" @choice_game="(i) => (choice_game = i)" />
       </LayoutWrapper>
-    </LayoutBG>
   </LayoutPage>
 </template>
 

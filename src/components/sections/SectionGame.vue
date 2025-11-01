@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import ComponentItemCatalog from '@/components/ComponentItemCatalog.vue'
+import ComponentItemCatalog from '@/components/ComponenCatalogItem.vue'
 
 const props = defineProps(['item'])
 const isLoding = ref(true)

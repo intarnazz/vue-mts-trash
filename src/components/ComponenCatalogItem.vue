@@ -72,9 +72,11 @@ async function color() {
         // если нет ярких пикселей, берём серый как fallback
         resolve('hsl(0, 0%, 50%)')
       } else {
-        const avgH = Math.round(sumH / count)
+        let avgH = Math.round(sumH / count)
         const avgS = Math.round(sumS / count)
         const avgL = Math.round(sumL / count)
+        if (avgH <= 240) avgH = avgH + 120
+        else avgH = avgH - 120
         resolve(`hsl(${avgH}, ${avgS}%, ${avgL}%)`)
       }
     }
@@ -91,27 +93,22 @@ onMounted(async () => {
 
 <template>
   <div @click="emit('choice_game', item)" class="item box-y gap-[0rem] pr">
-    <div class="flex pr z-2">
-      <p :style="{ color: avgColor }" >{{ item.name }}</p>
-    </div>
     <div class="pr">
-      <div
-        :style="{ 'box-shadow': `0 0 180px -60px ${avgColor}` }"
-        class="wh rounded-[10px] overflow-hidden"
-      >
+      <div class="wh rounded-[10px] overflow-hidden">
         <img
           class="img baner pr z-[2]"
           :src="`data:image/jpeg;base64,${item.image_binary}`"
           alt=""
         />
       </div>
-    </div>
-
-    <div class="pa p-[.5rem] z-2 box-y">
-      <div class="flex"></div>
-      <div class="box-x gap">
-        <div class="flex"></div>
-        <div class="">
+      <div class="pa z-2">
+        <div
+          :style="{ 'background-color': avgColor }"
+          class="absolute w-[258px] right-0 bottom-[29px] bb px-[1rem]"
+        >
+          <h3>{{ props.item.name }}</h3>
+        </div>
+        <div class="item__play-batton absolute right-[13px]">
           <img src="@/assets/icons/play.svg" alt="" />
         </div>
       </div>
@@ -122,15 +119,26 @@ onMounted(async () => {
 
 <style scoped lang="sass">
 .item
-  min-width: 300px
+  margin-right: 2rem
+  &__play-batton
+    transition: .3s
+    opacity: 0%
+    box-shadow: 0 10px 10px 0 #0000009d
+    border-radius: 100px
+    bottom: 20px
   &:hover
     cursor: pointer
     & .img.baner
       transform: scale(1.1)
+    & .item
+      margin-right: 2rem
+      &__play-batton
+        opacity: 100%
+        bottom: 26px
 
   & .img
     transition: .15s
-    width: 312px
-    height: 312px
+    height: 280px
+    width: 280px
     border-radius: 10px
 </style>

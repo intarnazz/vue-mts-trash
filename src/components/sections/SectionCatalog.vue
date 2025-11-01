@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import LayoutLoding from '@/layout/LayoutLoding.vue'
-import ComponentItemCatalog from '@/components/ComponentItemCatalog.vue'
+import ComponentItemCatalog from '@/components/ComponenCatalogItem.vue'
 
 const emit = defineEmits(['choice_game'])
 const c = ref('')
@@ -53,14 +53,17 @@ onMounted(() => {
 
 <template>
   <LayoutLoding v-if="isLoding" />
-  <section class="clatalog" v-if="!isLoding">
+  <section class="clatalog box box-y gap2" v-if="!isLoding">
     <!-- <h2>
       {{ catalog }}
     </h2> -->
-    <div class="list">
-      <template v-for="item in catalog" :key="item.id">
-        <ComponentItemCatalog @choice_game="(i) => emit('choice_game', i)" :item="item" />
-      </template>
+    <h2>Самые новые</h2>
+    <div class="box-x">
+      <div class="list">
+        <template v-for="item in catalog" :key="item.id">
+          <ComponentItemCatalog @choice_game="(i) => emit('choice_game', i)" :item="item" />
+        </template>
+      </div>
     </div>
   </section>
 </template>
@@ -69,5 +72,4 @@ onMounted(() => {
 .list
   display: grid
   grid-template-columns: 1fr 1fr 1fr 1fr
-  gap: 1rem
 </style>
