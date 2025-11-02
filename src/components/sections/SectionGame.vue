@@ -42,12 +42,22 @@ async function init() {
 }
 
 onMounted(() => {
-  init()
+  // init()
 })
 </script>
 
 <template>
-  <ComponentItemCatalog :item="props.item" />
+  <aside
+    :class="{
+      'w-[0px] right-[-100px]': !props.item,
+    }"
+    class="game box pr right-0"
+  >
+    <ComponentItemCatalog v-if="props.item" class="pointer-events-none" :item="props.item" />
+  </aside>
 </template>
 
-<style lang="sass"></style>
+<style scoped lang="sass">
+.game
+  transition: .3s
+</style>

@@ -52,7 +52,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <LayoutLoding v-if="isLoding" />
+  <!-- <LayoutLoding v-if="isLoding" /> -->
   <section class="clatalog box box-y gap2" v-if="!isLoding">
     <!-- <h2>
       {{ catalog }}
@@ -70,12 +70,30 @@ onMounted(() => {
 
 <style scoped lang="sass">
 .list
-  display: grid
-  grid-template-columns: 1fr 1fr 1fr 1fr
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  gap: 2rem
 
-@media screen and (max-width: 1400px)
-  .list
-    display: grid
-    grid-template-columns: 1fr 1fr 1fr
+// .list
+//   display: grid
+//   grid-template-columns: 1fr 1fr 1fr 1fr
+//   transition: 1s
+
+// @media screen and (max-width: 1280px)
+//   .list
+//     display: grid
+//     grid-template-columns: 1fr 1fr 1fr
+
+// @media screen and (max-width: 970px)
+//   .list
+//     display: grid
+//     grid-template-columns: 1fr 1fr
+
+// @media screen and (max-width: 700px)
+//   .list
+//     display: grid
+//     grid-template-columns: 1fr
+
 
 </style>

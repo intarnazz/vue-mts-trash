@@ -92,7 +92,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div @click="emit('choice_game', item)" class="item box-y gap-[0rem] pr">
+  <div @click="emit('choice_game', item)" class="item box-y gap-[1rem] pr">
     <div class="pr">
       <div class="wh rounded-[10px] overflow-hidden">
         <img
@@ -102,25 +102,27 @@ onMounted(async () => {
         />
       </div>
       <div class="pa z-2">
-        <div
+        <!-- <div
           :style="{ 'background-color': avgColor }"
           class="absolute w-[258px] right-0 bottom-[29px] bb px-[4px]"
         >
           <h3>{{ props.item.name }}</h3>
-        </div>
+        </div> -->
         <div class="item__play-batton absolute right-[13px]">
           <img src="@/assets/icons/play.svg" alt="" />
         </div>
       </div>
     </div>
-    <div class="flex"></div>
+    <div class="box-x">
+      <h3>{{ props.item.name }}</h3>
+    </div>
   </div>
 </template>
 
 <style scoped lang="sass">
 .item
-  margin-right: 2rem
-  margin-top: 2rem
+  // margin-right: 2rem
+  // margin-top: 2rem
   border-radius: 10px
   &__play-batton
     transition: .3s
@@ -131,6 +133,7 @@ onMounted(async () => {
   &:hover
     cursor: pointer
     outline: 1rem solid #2B2B2B
+    background-color: #2B2B2B
     & .img.baner
       transform: scale(1.09)
     & .item
