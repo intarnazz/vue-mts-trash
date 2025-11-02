@@ -120,6 +120,7 @@ onMounted(async () => {
 <style scoped lang="sass">
 .item
   margin-right: 2rem
+  margin-top: 2rem
   border-radius: 10px
   &__play-batton
     transition: .3s

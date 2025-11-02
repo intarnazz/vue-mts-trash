@@ -72,4 +72,10 @@ onMounted(() => {
 .list
   display: grid
   grid-template-columns: 1fr 1fr 1fr 1fr
+
+@media screen and (max-width: 1400px)
+  .list
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+
 </style>
