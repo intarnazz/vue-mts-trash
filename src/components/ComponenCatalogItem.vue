@@ -104,7 +104,7 @@ onMounted(async () => {
       <div class="pa z-2">
         <div
           :style="{ 'background-color': avgColor }"
-          class="absolute w-[258px] right-0 bottom-[29px] bb px-[1rem]"
+          class="absolute w-[258px] right-0 bottom-[29px] bb px-[4px]"
         >
           <h3>{{ props.item.name }}</h3>
         </div>
@@ -120,6 +120,7 @@ onMounted(async () => {
 <style scoped lang="sass">
 .item
   margin-right: 2rem
+  border-radius: 10px
   &__play-batton
     transition: .3s
     opacity: 0%
@@ -128,8 +129,9 @@ onMounted(async () => {
     bottom: 20px
   &:hover
     cursor: pointer
+    outline: 1rem solid #2B2B2B
     & .img.baner
-      transform: scale(1.1)
+      transform: scale(1.09)
     & .item
       margin-right: 2rem
       &__play-batton
